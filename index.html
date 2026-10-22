@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Império do Davi Gabriel 🍔</title>
+<style>
+:root {
+  --yellow:#ffdc28;
+  --gold:#ffad00;
+  --dark:#292000;
+  --cream:#fff9df;
+}
+* {box-sizing:border-box;scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--dark);
+  background:var(--yellow);
+}
+header {
+  text-align:center;
+  padding:65px 18px;
+  background:linear-gradient(135deg,#fff064,#ffae00);
+  border-bottom:6px solid var(--dark);
+}
+header h1 {
+  font-size:clamp(2.2rem,7vw,5rem);
+  margin:10px 0;
+  text-shadow:3px 3px #fff;
+}
+header p {font-size:1.15rem}
+.food {font-size:2rem;letter-spacing:8px}
+nav {
+  position:sticky;top:0;z-index:10;
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:6px;padding:12px;background:var(--dark);
+}
+nav a {
+  color:var(--yellow);text-decoration:none;
+  padding:10px;font-weight:bold;border-radius:8px;
+}
+nav a:hover {background:#554400;color:white}
+main {max-width:1050px;margin:auto;padding:20px}
+section {
+  margin:28px 0;padding:clamp(18px,4vw,35px);
+  background:var(--cream);
+  border:3px solid var(--dark);border-radius:22px;
+  box-shadow:7px 7px 0 var(--dark);
+}
+h2 {font-size:clamp(1.6rem,4vw,2.5rem)}
+h2:after {
+  content:"";display:block;width:100%;height:4px;
+  background:var(--gold);margin-top:12px;border-radius:4px;
+}
+h3 {color:#805100}
+p {line-height:1.85}
+.chapter {
+  background:#fff0a5;border-left:6px solid var(--gold);
+  padding:18px;margin:20px 0;border-radius:12px;
+}
+.quote {
+  font-weight:bold;font-style:italic;
+  padding:12px;background:#ffe16b;border-radius:10px;
+}
+button,.button {
+  display:inline-block;border:2px solid var(--dark);
+  border-radius:10px;padding:12px 17px;
+  background:var(--yellow);color:var(--dark);
+  font-weight:bold;cursor:pointer;text-decoration:none;
+}
+button:hover,.button:hover {background:var(--gold)}
+#endertall-img {
+  display:block;width:100%;max-width:600px;height:auto;
+  margin:24px auto;border:5px solid #ffbf00;
+  border-radius:18px;box-shadow:0 0 25px #ffc400;
+}
+.story-grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+.story-card {
+  background:#fff0a5;padding:18px;border-radius:15px;
+  border:2px solid #edb500;
+}
+#game {background:#11152c;color:white;border-color:#ffdc28}
+#game h2 {color:#ffdc28}
+#board {
+  display:grid;grid-template-columns:repeat(13,minmax(0,1fr));
+  gap:2px;width:100%;max-width:420px;margin:20px auto;
+  padding:4px;background:#050817;border:3px solid #4266ff;
+}
+.cell {
+  aspect-ratio:1;min-width:0;display:flex;
+  align-items:center;justify-content:center;
+  font-size:clamp(9px,2.5vw,16px);font-weight:bold;
+}
+.wall {background:#244bdd}
+.floor {background:#10132a}
+.dot:after {content:"·";color:#ffe16b;font-size:25px}
+.player {background:#ffdc28;color:#171000;border-radius:50%}
+.ghost {color:#fff;border-radius:50%}
+.ghost-Y {background:#f44}
+.ghost-V {background:#e77bda}
+.ghost-J {background:#00c9f0;color:#111}
+.ghost-E {background:#ff982c}
+.controls {
+  display:grid;grid-template-columns:repeat(3,55px);
+  gap:6px;justify-content:center;margin:16px;
+}
+.controls button {touch-action:manipulation}
+#message {color:#ffdc28;min-height:28px}
+footer {
+  background:var(--dark);color:var(--yellow);
+  text-align:center;padding:30px 15px;
+}
+@media(max-width:600px) {
+  main {padding:12px}
+  section {margin:20px 0}
+  nav a {padding:8px;font-size:.85rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="food">🍔 🍟 🍕 🌭 🍩</div>
+  <h1>O IMPÉRIO DO DAVI GABRIEL</h1>
+  <p>O universo onde a fome é lendária e a confusão nunca acaba!</p>
+  <a class="button" href="#historias">Explorar as aventuras ↓</a>
+</header>
+
+<nav>
+  <a href="#inicio">Início</a>
+  <a href="#historias">Histórias</a>
+  <a href="#rei-leites">Rei dos Leites</a>
+  <a href="#endertall">Endertall</a>
+  <a href="#musica">Música</a>
+  <a href="#game">DG-MAN</a>
+</nav>
+
+<main>
+<section id="inicio">
+  <h2>🍔 Bem-vindo ao universo!</h2>
+  <div class="food">🍕 🍔 🍟 🌮 🍰</div>
+  <p>
+    Davi Gabriel é o protagonista de um universo fictício em que
+    qualquer dia normal pode virar uma aventura intergaláctica.
+    Ele adora comida, tem imaginação de sobra e consegue transformar
+    uma simples conversa numa história que ninguém esperava.
+  </p>
+  <p>
+    Neste mundo, professores podem lançar feitiços usando palavras,
+    bois podem obedecer a um rei do leite e uma aura amarela pode
+    mudar completamente o destino de uma batalha.
+  </p>
+  <div class="story-grid">
+    <div class="story-card"><h3>🍔 Fome lendária</h3><p>O lanche nunca está a salvo nas aventuras imaginárias.</p></div>
+    <div class="story-card"><h3>⚡ Poderes absurdos</h3><p>Gravidade, energia dourada e habilidades surpreendentes.</p></div>
+    <div class="story-card"><h3>📚 Confusão escolar</h3><p>O professor de português transforma palavras em magia.</p></div>
+  </div>
+</section>
+
+<section id="historias">
+  <h2>📚 História 1 — A lenda do Davi Gabriel</h2>
+
+  <div class="chapter">
+    <h3>Capítulo 1: O início da lenda</h3>
+    <p>
+      Numa cidade onde todos conheciam as lanchonetes da região,
+      vivia Davi Gabriel, um garoto famoso por inventar histórias
+      extraordinárias. Quando alguém perguntava como tinha sido seu
+      fim de semana, ele começava contando que tinha ido à praça e,
+      cinco minutos depois, a história já envolvia um foguete,
+      um campeonato mundial e um hambúrguer do tamanho de uma mesa.
+    </p>
+    <p>
+      Os amigos nunca sabiam qual parte era verdade e qual parte era
+      invenção. Davi, por sua vez, gostava de fazer todo mundo rir.
+      Certo dia, anunciou que tinha encontrado um mapa secreto
+      escondido numa caixa de batatas fritas.
+    </p>
+    <p class="quote">“Esse mapa vai mudar a história da humanidade!” — declarou Davi.</p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 2: O mapa misterioso</h3>
+    <p>
+      O mapa indicava três lugares: a Montanha do Cheddar, o Vale
+      da Batata Crocante e o Castelo do Refrigerante Infinito.
+      Parecia uma brincadeira, mas havia pequenas pistas desenhadas
+      nas bordas do papel. Davi reuniu seus amigos e decidiu investigar.
+    </p>
+    <p>
+      Na Montanha do Cheddar, encontraram um enigma que só podia ser
+      resolvido organizando palavras. No Vale da Batata, tiveram de
+      atravessar um labirinto cheio de placas engraçadas. Finalmente,
+      chegaram ao castelo, onde descobriram que o tesouro era uma
+      receita lendária de hambúrguer.
+    </p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 3: A verdadeira conquista</h3>
+    <p>
+      Davi queria contar que tinha descoberto o maior tesouro do
+      planeta. Seus amigos pediram que, dessa vez, ele contasse
+      exatamente o que tinha acontecido. Ele respirou fundo e narrou
+      a aventura sem acrescentar dragões, foguetes ou monstros gigantes.
+    </p>
+    <p>
+      Todos perceberam que a jornada já era incrível por si só.
+      A partir daquele dia, Davi continuou inventando histórias,
+      mas aprendeu que dizer quando uma aventura é fictícia deixa
+      a brincadeira ainda melhor.
+    </p>
+  </div>
+
+  <h2>🌎 História 2 — Davi contra a Coreia do Norte</h2>
+
+  <div class="chapter">
+    <h3>Capítulo 1: A missão internacional</h3>
+    <p>
+      Nesta aventura completamente fictícia, Davi recebeu um convite
+      para participar de um desafio diplomático imaginário envolvendo
+      a Coreia do Norte. Sua missão era resolver uma série de enigmas
+      e impedir que uma disputa absurda por uma receita de hambúrguer
+      se transformasse numa confusão internacional.
+    </p>
+    <p>
+      Davi preparou sua mochila, colocou um caderno, um mapa e alguns
+      lanches e partiu acompanhado de uma equipe de exploradores.
+      Ele não tinha um plano perfeito, mas acreditava que observar
+      as pistas com calma seria melhor do que começar uma discussão.
+    </p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 2: O enigma das três portas</h3>
+    <p>
+      No centro de uma instalação fictícia havia três portas.
+      Uma tinha o desenho de uma estrela, outra mostrava um livro
+      e a terceira tinha uma batata frita. Para avançar, Davi
+      precisava descobrir qual símbolo completava uma sequência
+      de figuras no chão.
+    </p>
+    <p>
+      Ele quase escolheu a porta da batata imediatamente, mas notou
+      que os desenhos seguiam uma ordem lógica. Depois de conversar
+      com a equipe, identificou a sequência correta e abriu a passagem.
+      Atrás dela havia uma sala com um enorme quebra-cabeça.
+    </p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 3: Uma solução inesperada</h3>
+    <p>
+      O desafio final não exigia força nem uma batalha. Era preciso
+      organizar uma mesa de negociação e apresentar uma solução
+      que todos pudessem aceitar. Davi desenhou um acordo em que
+      cada equipe contribuía com uma parte de uma receita imaginária.
+    </p>
+    <p>
+      A disputa foi encerrada no universo da história, e os participantes
+      comemoraram a solução com um banquete fictício. Davi voltou
+      para casa contando a aventura — desta vez, deixando claro
+      que era uma história inventada.
+    </p>
+  </div>
+
+  <h2>🪐 História 3 — A guerra dos superpoderes</h2>
+
+  <div class="chapter">
+    <h3>Capítulo 1: O despertar da gravidade</h3>
+    <p>
+      Numa manhã aparentemente normal, Davi percebeu que uma moeda
+      tinha começado a flutuar perto de sua mão. Quando se concentrou,
+      a moeda subiu até o teto. Ao tentar fazê-la descer, descobriu
+      que conseguia controlar a gravidade de pequenos objetos.
+    </p>
+    <p>
+      Mais tarde, percebeu que também podia engolir objetos mágicos
+      de desenho e esticar a barriga como se fosse feita de borracha.
+      Essas habilidades só funcionavam no mundo fantástico da história.
+      Davi decidiu usar seus poderes para proteger os amigos e resolver
+      problemas, em vez de causar danos.
+    </p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 2: O professor das palavras mágicas</h3>
+    <p>
+      O professor de português também tinha um poder extraordinário:
+      as palavras que pronunciava ganhavam efeitos mágicos.
+      Quando dizia “SILÊNCIO!”, uma bolha de tranquilidade surgia
+      na sala. Quando falava “FLUTUAR!”, os livros começavam a levitar.
+    </p>
+    <p>
+      Daniel, outro personagem da aventura, conseguia controlar bois
+      encantados e lançar jatos de leite mágico que viravam espuma
+      ao tocar o chão. A situação ficou caótica quando os bois
+      começaram a correr em círculos atrás de uma bola dourada.
+    </p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 3: A batalha que virou cooperação</h3>
+    <p>
+      Davi aumentou a gravidade ao redor da bola para mantê-la parada,
+      enquanto o professor pronunciou “ORGANIZAR!”. As palavras
+      apareceram no ar como letras luminosas. Daniel chamou os bois
+      de volta e usou a espuma de leite para marcar um caminho seguro.
+    </p>
+    <p>
+      Os três perceberam que seus poderes funcionavam melhor quando
+      trabalhavam juntos. A batalha terminou, a sala foi arrumada
+      e todos combinaram de treinar os poderes com responsabilidade.
+      Davi ainda guardou a moeda flutuante como lembrança da aventura.
+    </p>
+  </div>
+</section>
+
+<section id="rei-leites">
+  <h2>🥛 História 4 — Davi Gabriel contra Daniel, o Rei dos Leites</h2>
+  <div class="food">🥛 🐂 ⚡ 🍔 🥛</div>
+
+  <div class="chapter">
+    <h3>Capítulo 1: A chegada do Rei dos Leites</h3>
+    <p>
+      No reino imaginário de Lactolândia, Daniel era conhecido como
+      o Rei dos Leites. Usava uma capa branca com detalhes azuis,
+      carregava um cetro em forma de garrafa e comandava uma tropa
+      de bois encantados. Seu castelo tinha torres que pareciam
+      caixas de leite e fontes que jorravam espuma brilhante.
+    </p>
+    <p>
+      Daniel anunciou que queria vencer o Grande Torneio dos Poderes
+      para provar que seu reino era o mais criativo de todos.
+      Davi Gabriel recebeu o convite para participar e aceitou
+      imediatamente. Ele treinou seu controle da gravidade e praticou
+      a criação de escudos dourados de energia.
+    </p>
+    <p class="quote">“Prepare-se, DG! Hoje o leite vai entrar para a história!” — declarou Daniel.</p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 2: A tropa dos bois encantados</h3>
+    <p>
+      No dia do torneio, Daniel ergueu o cetro. Os bois mágicos
+      apareceram numa nuvem de fumaça branca e começaram a marchar
+      pela arena. Cada um tinha um sino que tocava uma nota musical
+      diferente. Quando os sinos tocavam juntos, o chão tremia
+      como um tambor gigante.
+    </p>
+    <p>
+      Davi tentou avançar, mas os jatos de leite mágico criaram
+      uma pista escorregadia. Ele quase perdeu o equilíbrio,
+      então ativou sua aura amarela e reduziu a gravidade ao redor
+      dos próprios pés. Começou a deslizar pela arena como se
+      estivesse patinando no ar.
+    </p>
+    <p>
+      Daniel riu e lançou mais espuma encantada. Davi percebeu
+      que não precisava derrotar cada boi. Em vez disso, começou
+      a mudar a gravidade de pequenas bolas coloridas, atraindo
+      a atenção do rebanho para longe dos competidores.
+    </p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 3: O poder da barriga elástica</h3>
+    <p>
+      Daniel preparou seu golpe especial: a Grande Chuva de Leite.
+      Uma nuvem branca surgiu sobre a arena e começou a espalhar
+      espuma mágica por todos os lados. Davi ergueu um escudo
+      de gravidade, mas a nuvem era grande demais.
+    </p>
+    <p>
+      Foi então que Davi usou sua habilidade mais inesperada:
+      a barriga elástica de desenho animado. Ela se expandiu como
+      um enorme balão mágico e formou uma barreira macia que desviou
+      a espuma para uma área vazia da arena. Nenhum personagem
+      se machucou; o golpe apenas transformou o chão num imenso
+      escorregador branco.
+    </p>
+    <p>
+      A plateia começou a rir, os bois passaram a deslizar em
+      círculos e Daniel ficou tão surpreso que deixou o cetro
+      cair numa almofada de espuma.
+    </p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 4: O último duelo</h3>
+    <p>
+      Sem o cetro, Daniel ainda tinha um último truque: podia
+      produzir um jato de leite mágico que desenhava símbolos
+      no ar. Ele desenhou uma coroa, e a coroa virou um enorme
+      labirinto de espuma ao redor de Davi.
+    </p>
+    <p>
+      Davi fechou os olhos e sentiu a energia dourada pulsar.
+      Em vez de tentar destruir o labirinto, alterou a gravidade
+      de cada bolha. As bolhas subiram lentamente e formaram
+      uma passagem brilhante por cima das paredes.
+    </p>
+    <p>
+      Ele atravessou o caminho, chegou ao centro da arena e
+      ofereceu a mão a Daniel. O Rei dos Leites aceitou o desafio
+      final: os dois teriam de usar seus poderes para construir
+      a maior fonte de espuma decorativa do reino.
+    </p>
+  </div>
+
+  <div class="chapter">
+    <h3>Capítulo 5: A trégua do leite e do hambúrguer</h3>
+    <p>
+      Davi usou a gravidade para manter as bolhas no ar, enquanto
+      Daniel desenhava figuras com os jatos de leite mágico.
+      Os bois encantados tocaram seus sinos e criaram uma música
+      que ecoou pelo castelo inteiro. Em poucos minutos, a arena
+      estava decorada com estrelas, luas e enormes letras douradas.
+    </p>
+    <p>
+      O júri declarou que aquela tinha sido a apresentação mais
+      criativa do torneio. Daniel manteve seu título de Rei dos
+      Leites, enquanto Davi ganhou a medalha de Mestre da Gravidade.
+      Em vez de continuarem rivais, decidiram organizar um festival
+      de comidas e poderes mágicos.
+    </p>
+    <p class="quote">
+      E assim terminou o duelo: sem um vencedor absoluto, mas com
+      uma amizade nova, bois dançarinos e uma quantidade absurda
+      de espuma mágica!
+    </p>
+  </div>
+</section>
+
+<section id="endertall">
+  <h2>⚡ ENDERTALL — A AURA DOURADA</h2>
+  <p>
+    Diz a lenda fictícia que Endertall consegue transformar qualquer
+    entrada dramática numa cena digna de um jogo. Sua aura amarela
+    brilha quando começa uma missão e fica ainda mais forte
+    quando surge um desafio inesperado.
+  </p>
+  <img id="endertall-img" src="endertall.png"
+       alt="Imagem do Endertall com aura dourada"
+       onerror="this.style.display='none';document.getElementById('img-error').style.display='block'">
+  <p id="img-error" style="display:none">
+    ⚠️ Imagem não encontrada. Coloque endertall.png na mesma pasta
+    do arquivo index.html.
+  </p>
+</section>
+
+<section id="musica">
+  <h2>🎤 A música do Davi Gabriel</h2>
+  <div class="story-card" style="text-align:center">
+    <div class="food">🎵 🍔 🎵</div>
+    <h3>Rap do Davi Gabriel</h3>
+    <p>O rap de zoeira sobre comida, histórias e confusão.</p>
+    <a class="button" href="https://suno.com/s/0ypRY27rL2GYzWgj"
+       target="_blank" rel="noopener noreferrer">🎧 Ouvir no Suno</a>
+  </div>
+</section>
+
+<section id="game">
+  <h2>🎮 DG-MAN — O LABIRINTO DO LANCHE</h2>
+  <p>Controle o DG, colete todos os pontos e fuja dos fantasmas Y, V, J e E.</p>
+  <p>
+    Pontuação: <span id="score">0</span> |
+    Pontos restantes: <span id="remaining">0</span>
+  </p>
+  <div id="board"></div>
+  <p id="message" aria-live="polite">Boa sorte, DG!</p>
+  <div class="controls">
+    <span></span><button onclick="move(0,-1)">⬆️</button><span></span>
+    <button onclick="move(-1,0)">⬅️</button>
+    <button onclick="move(0,1)">⬇️</button>
+    <button onclick="move(1,0)">➡️</button>
+  </div>
+  <button onclick="startGame()">🔄 Reiniciar partida</button>
+</section>
+</main>
+
+<footer>
+  <div class="food">🍔 🍟 🍕</div>
+  <p>O Império do Davi Gabriel — aventuras fictícias para diversão.</p>
+  <a href="#inicio" style="color:#ffdc28">Voltar ao topo ↑</a>
+</footer>
+
+<script>
+const originalMap = [
+"#############",
+"#...........#",
+"#.###.#.###.#",
+"#...........#",
+"#.##..#..##.#",
+"#....#.#....#",
+"###..#.#..###",
+"#...........#",
+"#.##..#..##.#",
+"#...........#",
+"#.###.#.###.#",
+"#...........#",
+"#############"
+];
+
+let map, player, ghosts, score, remaining, ended, ghostTurn;
+
+function startGame() {
+  map = originalMap.map(row => row.split(""));
+  player = {x:1,y:1};
+  ghosts = [
+    {x:11,y:1,name:"Y",style:"ghost-Y"},
+    {x:11,y:11,name:"V",style:"ghost-V"},
+    {x:1,y:11,name:"J",style:"ghost-J"},
+    {x:6,y:9,name:"E",style:"ghost-E"}
+  ];
+  score = 0;
+  remaining = map.flat().filter(c => c === ".").length;
+  ended = false;
+  ghostTurn = 0;
+  document.getElementById("message").textContent =
+    "Colete os pontos e evite os fantasmas!";
+  render();
+}
+
+function render() {
+  const board = document.getElementById("board");
+  board.innerHTML = "";
+
+  for (let y=0;y<map.length;y++) {
+    for (let x=0;x<map[y].length;x++) {
+      const cell = document.createElement("div");
+      cell.className = "cell " +
+        (map[y][x] === "#" ? "wall" : "floor");
+
+      if (map[y][x] === ".") cell.classList.add("dot");
+
+      if (player.x===x && player.y===y) {
+        cell.className = "cell player";
+        cell.textContent = "DG";
+        cell.title = "Davi Gabriel";
+      } else {
+        const g = ghosts.find(g=>g.x===x && g.y===y);
+        if (g) {
+          cell.className = "cell ghost " + g.style;
+          cell.textContent = g.name;
+          cell.title = "Fantasma " + g.name;
+        }
+      }
+      board.appendChild(cell);
+    }
+  }
+  document.getElementById("score").textContent = score;
+  document.getElementById("remaining").textContent = remaining;
+}
+
+function move(dx,dy) {
+  if (ended) return;
+  const nx=player.x+dx, ny=player.y+dy;
+  if (!map[ny] || map[ny][nx]==="#") return;
+
+  player.x=nx;
+  player.y=ny;
+
+  if (map[ny][nx]===".") {
+    map[ny][nx]=" ";
+    score+=10;
+    remaining--;
+  }
+
+  if (caught()) return finish(false);
+
+  ghostTurn++;
+  if (ghostTurn%2===0) moveGhosts();
+  if (caught()) return finish(false);
+  if (remaining===0) return finish(true);
+  render();
+}
+
+function caught() {
+  return ghosts.some(g=>g.x===player.x && g.y===player.y);
+}
+
+function moveGhosts() {
+  ghosts.forEach(g=>{
+    const options=[
+      {x:g.x+1,y:g.y},{x:g.x-1,y:g.y},
+      {x:g.x,y:g.y+1},{x:g.x,y:g.y-1}
+    ].filter(p=>
+      map[p.y] && map[p.y][p.x]!=="#" &&
+      !ghosts.some(other=>other!==g && other.x===p.x && other.y===p.y)
+    );
+    if (!options.length) return;
+
+    options.sort((a,b)=>{
+      const da=Math.abs(a.x-player.x)+Math.abs(a.y-player.y);
+      const db=Math.abs(b.x-player.x)+Math.abs(b.y-player.y);
+      return Math.random()<0.3 ? Math.random()-0.5 : da-db;
+    });
+    g.x=options[0].x;
+    g.y=options[0].y;
+  });
+}
+
+function finish(won) {
+  ended=true;
+  document.getElementById("message").textContent=won
+    ? "🏆 DG venceu e coletou todos os pontos!"
+    : "👻 Um fantasma pegou o DG! Tente de novo!";
+  render();
+}
+
+document.addEventListener("keydown",e=>{
+  const keys={
+    ArrowUp:[0,-1],ArrowDown:[0,1],
+    ArrowLeft:[-1,0],ArrowRight:[1,0]
+  };
+  if(keys[e.key]) {
+    e.preventDefault();
+    move(...keys[e.key]);
+  }
+});
+
+startGame();
+</script>
+</body>
+</html>
